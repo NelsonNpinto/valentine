@@ -15,8 +15,8 @@ export default function MessageNo() {
         onClick={() => navigate('/question')}
         style={{
           position: 'absolute',
-          left: '5vw',
-          top: '5vh',
+          left: 'clamp(15px, 5vw, 25px)',
+          top: 'clamp(30px, 5vh, 45px)',
           fontFamily: "'Fredoka One', cursive",
           fontSize: 'clamp(28px, 8vw, 32px)',
           color: '#fad6e1',
@@ -31,12 +31,12 @@ export default function MessageNo() {
       </button>
 
       <p style={{
-        marginTop: '12vh',
+        marginTop: 'clamp(80px, 12vh, 105px)',
         fontFamily: "'Fredoka One', cursive",
         fontSize: 'clamp(20px, 5vw, 24px)',
         color: '#fad6e1',
         textAlign: 'center',
-        margin: '12vh auto 0',
+        margin: 'clamp(80px, 12vh, 105px) auto 0',
         maxWidth: '300px'
       }}>
         How dare you say NO!
@@ -49,7 +49,7 @@ export default function MessageNo() {
         border: '5px solid #ef86a5',
         borderRadius: '30px',
         overflow: 'hidden',
-        marginTop: '4vh'
+        marginTop: 'clamp(25px, 4vh, 35px)'
       }}>
         <img src={imgImage1} alt="" style={{
           width: '100%',
@@ -63,7 +63,7 @@ export default function MessageNo() {
         fontSize: 'clamp(18px, 4.5vw, 20px)',
         color: '#fad6e1',
         textAlign: 'center',
-        margin: '4vh 0 0',
+        margin: 'clamp(25px, 4vh, 35px) 0 0',
         maxWidth: '300px'
       }}>
         Say yes if you love me
@@ -83,7 +83,7 @@ export default function MessageNo() {
           fontFamily: "'Fredoka One', cursive",
           fontSize: 'clamp(16px, 4vw, 18px)',
           color: 'white',
-          marginTop: '3vh'
+          marginTop: 'clamp(20px, 3vh, 26px)'
         }}
       >
         Yes

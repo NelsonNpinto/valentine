@@ -74,44 +74,39 @@ export default function SpinWheel({ spinsLeft, setSpinsLeft, wonCoupons, setWonC
   };
 
   return (
-    <div className="screen" style={{ background: '#fad6e1' }}>
+    <div className="screen" style={{ background: '#fad6e1', justifyContent: 'flex-start', padding: '0 5vw' }}>
       <div style={{
-        position: 'absolute',
-        left: '50%',
-        top: '103px',
-        transform: 'translateX(-50%)',
+        marginTop: 'clamp(80px, 12vh, 103px)',
         fontFamily: "'Fredoka One', cursive",
-        fontSize: '28px',
+        fontSize: 'clamp(22px, 6vw, 28px)',
         color: 'white',
         textAlign: 'center',
-        whiteSpace: 'nowrap'
+        width: '100%'
       }}>
         <p style={{ margin: 0 }}>Spin the wheel and</p>
         <p style={{ margin: 0 }}> win coupons!</p>
       </div>
 
       <p style={{
-        position: 'absolute',
-        left: '50%',
-        top: '191px',
-        transform: 'translateX(-50%)',
+        marginTop: 'clamp(15px, 2.5vh, 20px)',
         fontFamily: "'Poppins', sans-serif",
-        fontSize: '12px',
+        fontSize: 'clamp(11px, 3vw, 12px)',
         fontWeight: 600,
         color: '#ea4986',
         textAlign: 'center',
-        width: '279px',
-        margin: 0
+        width: '100%',
+        maxWidth: '279px',
+        margin: 'clamp(15px, 2.5vh, 20px) auto 0',
+        padding: '0 20px'
       }}>
         {getSpinMessage()}
       </p>
 
       <div style={{
-        position: 'absolute',
-        left: '53px',
-        top: '228px',
-        width: '283px',
-        height: '283px',
+        position: 'relative',
+        marginTop: 'clamp(20px, 3vh, 37px)',
+        width: 'clamp(260px, 72vw, 283px)',
+        height: 'clamp(260px, 72vw, 283px)',
         background: '#ea4986',
         borderRadius: '141.5px',
         padding: '8px',
@@ -357,8 +352,9 @@ export default function SpinWheel({ spinsLeft, setSpinsLeft, wonCoupons, setWonC
 
         <div style={{
           position: 'absolute',
-          left: '124px',
+          left: '50%',
           top: '-17px',
+          transform: 'translateX(-50%)',
           width: '36.058px',
           height: '50.042px',
           display: 'flex',
@@ -394,11 +390,10 @@ export default function SpinWheel({ spinsLeft, setSpinsLeft, wonCoupons, setWonC
         disabled={spinning || spinsLeft <= 0}
         className="button-hover"
         style={{
-          position: 'absolute',
-          left: '43px',
-          top: '568px',
-          width: '299px',
-          height: '48px',
+          marginTop: 'clamp(30px, 5vh, 57px)',
+          width: '100%',
+          maxWidth: 'clamp(280px, 76vw, 299px)',
+          height: 'clamp(45px, 6vh, 48px)',
           background: spinning || spinsLeft <= 0 ? 'rgba(107,107,107,0.5)' : '#ff2f6f',
           borderRadius: '16px',
           boxShadow: '0px 14.533px 20px 0px rgba(200,53,98,0.18), inset 0px -6.685px 6.685px 0px #dc2960, inset 0px 6.685px 6.685px 0px #ff347b',
@@ -420,32 +415,32 @@ export default function SpinWheel({ spinsLeft, setSpinsLeft, wonCoupons, setWonC
       {showModal && (
         <>
           <div style={{
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
+            position: 'fixed',
+            inset: 0,
             backdropFilter: 'blur(5px)',
             background: 'rgba(109,109,109,0.4)',
-            width: '410px',
-            height: '844px'
+            zIndex: 10
           }} />
 
           <div className="scale-in" style={{
-            position: 'absolute',
+            position: 'fixed',
             left: '50%',
-            top: 'calc(50% - 8px)',
+            top: '50%',
             transform: 'translate(-50%, -50%)',
             background: 'white',
-            padding: '20px',
+            padding: 'clamp(18px, 5vw, 20px)',
             borderRadius: '30px',
             display: 'flex',
             flexDirection: 'column',
             gap: '14px',
-            alignItems: 'center'
+            alignItems: 'center',
+            width: '90%',
+            maxWidth: '320px',
+            zIndex: 11
           }}>
             <div style={{
-              width: '201px',
-              height: '130px',
+              width: 'clamp(180px, 50vw, 201px)',
+              height: 'clamp(116px, 32vw, 130px)',
               overflow: 'hidden',
               position: 'relative'
             }}>
@@ -463,11 +458,11 @@ export default function SpinWheel({ spinsLeft, setSpinsLeft, wonCoupons, setWonC
               flexDirection: 'column',
               gap: '6px',
               alignItems: 'center',
-              width: '279px'
+              width: '100%'
             }}>
               <p style={{
                 fontFamily: "'Fredoka One', cursive",
-                fontSize: '28px',
+                fontSize: 'clamp(24px, 6vw, 28px)',
                 color: '#fad6e1',
                 margin: 0
               }}>
@@ -475,7 +470,7 @@ export default function SpinWheel({ spinsLeft, setSpinsLeft, wonCoupons, setWonC
               </p>
               <p style={{
                 fontFamily: "'Poppins', sans-serif",
-                fontSize: '12px',
+                fontSize: 'clamp(11px, 3vw, 12px)',
                 fontWeight: 600,
                 color: '#ea4986',
                 textAlign: 'center',
@@ -490,8 +485,8 @@ export default function SpinWheel({ spinsLeft, setSpinsLeft, wonCoupons, setWonC
               className="button-hover"
               style={{
                 background: '#ff2f6f',
-                height: '60px',
-                width: '279px',
+                height: 'clamp(50px, 7vh, 60px)',
+                width: '100%',
                 borderRadius: '16px',
                 boxShadow: '0px 14.533px 29.067px 0px rgba(51,9,22,0.2), inset 0px -6.685px 6.685px 0px #dc2960, inset 0px 6.685px 6.685px 0px #ff347b',
                 border: 'none',
@@ -500,7 +495,7 @@ export default function SpinWheel({ spinsLeft, setSpinsLeft, wonCoupons, setWonC
             >
               <p style={{
                 fontFamily: "'Fredoka One', cursive",
-                fontSize: '18px',
+                fontSize: 'clamp(16px, 4vw, 18px)',
                 color: 'white',
                 margin: 0,
                 textAlign: 'center'

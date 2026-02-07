@@ -17,7 +17,7 @@ export default function SplashScreen({ navigate }) {
         position: 'relative',
         width: '100%',
         maxWidth: '400px',
-        marginTop: '25vh',
+        marginTop: 'clamp(180px, 25vh, 220px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -65,7 +65,7 @@ export default function SplashScreen({ navigate }) {
       <div style={{
         width: 'clamp(40px, 12vw, 48px)',
         height: 'clamp(40px, 12vw, 48px)',
-        marginBottom: '15vh',
+        marginBottom: 'clamp(100px, 15vh, 130px)',
         alignSelf: 'center'
       }}>
         <img 

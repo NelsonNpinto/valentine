@@ -95,18 +95,18 @@ export default function Coupons({ wonCoupons }) {
   return (
     <div className="screen fade-in" style={{ background: 'white', justifyContent: 'flex-start', padding: '0 5vw', overflow: 'auto' }}>
       <p style={{
-        marginTop: '6vh',
+        marginTop: 'clamp(40px, 6vh, 52px)',
         fontFamily: "'Fredoka One', cursive",
         fontSize: 'clamp(20px, 5vw, 24px)',
         color: '#fad6e1',
-        margin: '6vh 0 0',
+        margin: 'clamp(40px, 6vh, 52px) 0 0',
         textAlign: 'center'
       }}>
         My Coupons
       </p>
 
       <div style={{
-        marginTop: '4vh',
+        marginTop: 'clamp(25px, 4vh, 35px)',
         display: 'flex',
         flexDirection: 'column',
         gap: 'clamp(20px, 3vh, 24px)',
@@ -122,8 +122,8 @@ export default function Coupons({ wonCoupons }) {
       </div>
 
       <div style={{
-        marginTop: '5vh',
-        marginBottom: '3vh',
+        marginTop: 'clamp(30px, 5vh, 45px)',
+        marginBottom: 'clamp(20px, 3vh, 26px)',
         background: 'white',
         padding: 'clamp(15px, 4vw, 20px)',
         borderRadius: '30px',

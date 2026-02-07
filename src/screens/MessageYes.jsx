@@ -13,7 +13,7 @@ export default function MessageYes() {
         position: 'relative',
         width: '100%',
         maxWidth: '400px',
-        marginTop: '15vh',
+        marginTop: 'clamp(100px, 15vh, 130px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -62,7 +62,7 @@ export default function MessageYes() {
       <div className="scale-in" style={{
         position: 'relative',
         zIndex: 3,
-        marginTop: '5vh',
+        marginTop: 'clamp(30px, 5vh, 45px)',
         background: 'white',
         padding: 'clamp(20px, 5vw, 30px)',
         borderRadius: '30px',

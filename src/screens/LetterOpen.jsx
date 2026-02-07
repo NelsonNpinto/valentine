@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import photo1 from '../assests/WhatsApp Image 2026-02-05 at 3.26.57 PM (1).jpeg';
-import photo2 from '../assests/WhatsApp Image 2026-02-05 at 3.26.57 PM (2).jpeg';
-import photo3 from '../assests/WhatsApp Image 2026-02-05 at 3.26.57 PM.jpeg';
+import photo1 from '../assests/nelsons/nelson1.jpeg';
+import photo2 from '../assests/nelsons/nelson2.jpeg';
+import photo3 from '../assests/nelsons/nelson3.jpeg';
 
 const imgPhotoStrip = "https://www.figma.com/api/mcp/asset/6783fd3e-1102-431a-8217-5ec302c11b05";
 const imgImage4 = "https://www.figma.com/api/mcp/asset/31d542dd-323e-4e2b-a3a8-1ffaae2c20b5";
@@ -31,10 +31,9 @@ export default function LetterOpen({ resetState }) {
       }}>
         <div style={{
           position: 'absolute',
-          left: '3vw',
-          top: '50vh',
-          width: '85vw',
-          maxWidth: '352px',
+          left: 'clamp(10px, 3vw, 15px)',
+          top: 'clamp(380px, 50vh, 450px)',
+          width: 'clamp(280px, 85vw, 352px)',
           height: 'auto',
           aspectRatio: '352/250',
           transform: 'rotate(4.02deg)',
@@ -52,12 +51,12 @@ export default function LetterOpen({ resetState }) {
 
         <div style={{
           position: 'relative',
-          width: '70vw',
-          maxWidth: '270px',
+          width: 'clamp(310px, 85vw, 360px)',
+          maxWidth: '360px',
           aspectRatio: '270/385',
           transform: 'rotate(-3.36deg)',
           boxShadow: '0px 4px 4px 0px rgba(0,0,0,0.25)',
-          marginTop: '15vh',
+          marginTop: 'clamp(70px, 10vh, 100px)',
           zIndex: 2
         }}>
           <img src={imgImage2} alt="" style={{
@@ -71,10 +70,10 @@ export default function LetterOpen({ resetState }) {
 
         <div style={{
           position: 'absolute',
-          right: '5vw',
-          top: '40vh',
-          width: '40vw',
-          maxWidth: '168px',
+          right: 'clamp(8px, 3vw, 18px)',
+          top: 'clamp(260px, 36vh, 320px)',
+          width: 'clamp(180px, 50vw, 220px)',
+          maxWidth: '220px',
           aspectRatio: '168.569/333.511',
           transform: 'rotate(13.41deg)',
           zIndex: 3
@@ -102,8 +101,8 @@ export default function LetterOpen({ resetState }) {
             
             <div style={{
               background: 'white',
-              width: '15vw',
-              maxWidth: '68px',
+              width: 'clamp(70px, 19vw, 90px)',
+              maxWidth: '90px',
               aspectRatio: '68.273/78.026',
               overflow: 'hidden',
               position: 'relative',
@@ -117,8 +116,8 @@ export default function LetterOpen({ resetState }) {
             </div>
             
             <div style={{
-              width: '15vw',
-              maxWidth: '68px',
+              width: 'clamp(70px, 19vw, 90px)',
+              maxWidth: '90px',
               aspectRatio: '68.273/78.026',
               overflow: 'hidden',
               position: 'relative',
@@ -132,8 +131,8 @@ export default function LetterOpen({ resetState }) {
             </div>
             
             <div style={{
-              width: '15vw',
-              maxWidth: '68px',
+              width: 'clamp(70px, 19vw, 90px)',
+              maxWidth: '90px',
               aspectRatio: '68.273/78.026',
               overflow: 'hidden',
               position: 'relative',
@@ -155,16 +154,15 @@ export default function LetterOpen({ resetState }) {
               position: 'relative',
               zIndex: 1
             }}>
-              Khant & San<br />Valentine's 2025
             </p>
           </div>
         </div>
 
         <div style={{
           position: 'absolute',
-          left: '12vw',
-          top: '22vh',
-          width: '55vw',
+          left: 'clamp(30px, 12vw, 50px)',
+          top: 'clamp(150px, 22vh, 190px)',
+          width: 'clamp(190px, 55vw, 223px)',
           maxWidth: '223px',
           transform: 'rotate(-2.98deg)',
           zIndex: 3
@@ -176,9 +174,20 @@ export default function LetterOpen({ resetState }) {
             color: 'black',
             margin: 0
           }}>
-            Happy Valentine's Day, baby ❤️
-I love you so much, more than words can ever explain. I feel incredibly lucky to have you in my life, and I don't take that for granted even for a second. You make my world feel warmer, calmer, and more meaningful just by being in it.
-I want to make today special for you—not just today, but every day—by loving you better, choosing you every time, and proving through my actions how much you mean to me. You are my safe place, my comfort, my happiness, and my heart. I'm so grateful for you, always.
+             <br /><br />
+          Happy Valentine's Day, my baby.
+          <br /><br />
+          I love you so much, more than words can ever explain. I feel incredibly lucky to have you in my life, and I don't take that for granted even for a second. You make my world more meaningful just by being in it.
+          <br /><br />
+          I want to be with you and make everyday special to you—by loving you better, choosing you every time, and proving through my actions how much you mean to me.
+          <br /><br />
+          You are my, my comfort, my happiness, and my heart. I'm so grateful for you, always.
+          <br /><br />
+          And i will always choose you above anyone, youre the most most beautiful girl in this world, you are so perfect and you carry yourself perfectly.
+          <br /><br />
+          I am lucky to have a girl like you in my life.
+          <br /><br />
+          I love you ♥️😘
           </p>
         </div>
 
@@ -187,8 +196,8 @@ I want to make today special for you—not just today, but every day—by loving
           className="button-hover"
           style={{
             position: 'absolute',
-            right: '5vw',
-            bottom: '8vh',
+            right: 'clamp(15px, 5vw, 25px)',
+            bottom: 'clamp(50px, 8vh, 70px)',
             background: '#ff2f6f',
             height: 'clamp(50px, 7vh, 60px)',
             width: 'clamp(120px, 35vw, 143px)',

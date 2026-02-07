@@ -13,7 +13,7 @@ export default function LetterClosed() {
         position: 'relative',
         width: '100%',
         maxWidth: '400px',
-        marginTop: '12vh',
+        marginTop: 'clamp(80px, 12vh, 105px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -73,7 +73,7 @@ export default function LetterClosed() {
         fontSize: 'clamp(18px, 5vw, 20px)',
         color: '#fad6e1',
         textAlign: 'center',
-        margin: '8vh auto 0',
+        margin: 'clamp(50px, 8vh, 70px) auto 0',
         maxWidth: '300px'
       }}>
         Tap the envelope to open

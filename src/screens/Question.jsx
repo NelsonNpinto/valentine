@@ -8,27 +8,61 @@ export default function Question() {
   const navigate = useNavigate();
   const [noButtonStyle, setNoButtonStyle] = useState({});
   const [noAttempts, setNoAttempts] = useState(0);
+  const [noButtonText, setNoButtonText] = useState('No');
+  const [isHovering, setIsHovering] = useState(false);
+
+  const playfulTexts = [
+    'No',
+    'Are you sure? 🤔',
+    'Really? 😢',
+    'Think again! 💭',
+    'Please? 🥺',
+    'One more chance? 💕'
+  ];
 
   const handleYesClick = () => {
     navigate('/message-yes');
+  };
+
+  const handleNoHover = () => {
+    if (noAttempts === 0) {
+      // Keep movement within safe boundaries (max 80px in any direction)
+      const randomX = Math.random() * 160 - 80;
+      const randomY = Math.random() * 100 - 50;
+      const randomRotate = Math.random() * 30 - 15;
+      
+      setNoButtonStyle({
+        transform: `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg) scale(0.9)`,
+        transition: 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+      });
+      setIsHovering(true);
+    }
   };
 
   const handleNoClick = () => {
     const newAttempts = noAttempts + 1;
     setNoAttempts(newAttempts);
 
-    if (newAttempts >= 3) {
+    if (newAttempts >= 5) {
       navigate('/message-no');
       return;
     }
 
-    const randomX = Math.random() * 200 - 100;
-    const randomY = Math.random() * 200 - 100;
+    // Constrain movement to stay within screen boundaries
+    // Reduce range based on attempt number to keep it visible
+    const maxMove = Math.max(60, 120 - newAttempts * 15);
+    const randomX = Math.random() * (maxMove * 2) - maxMove;
+    const randomY = Math.random() * (maxMove * 1.5) - (maxMove * 0.75);
+    const randomRotate = Math.random() * 360;
+    const scale = Math.max(0.6, 1 - newAttempts * 0.1);
     
     setNoButtonStyle({
-      transform: `translate(${randomX}px, ${randomY}px) scale(${1 - newAttempts * 0.15})`,
-      transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'
+      transform: `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg) scale(${scale})`,
+      transition: 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
     });
+    
+    setNoButtonText(playfulTexts[Math.min(newAttempts, playfulTexts.length - 1)]);
+    setIsHovering(false);
   };
 
   return (
@@ -37,7 +71,7 @@ export default function Question() {
         position: 'relative',
         width: '100%',
         maxWidth: '400px',
-        marginTop: '15vh',
+        marginTop: 'clamp(100px, 15vh, 130px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -86,7 +120,7 @@ export default function Question() {
       <div style={{
         width: '100%',
         maxWidth: '400px',
-        marginTop: '8vh',
+        marginTop: 'clamp(50px, 8vh, 70px)',
         display: 'flex',
         flexDirection: 'column',
         gap: 'clamp(20px, 4vh, 30px)',
@@ -100,7 +134,7 @@ export default function Question() {
           lineHeight: '1.3',
           textAlign: 'center'
         }}>
-          Will you be my valentine Preeti Potdar?
+          Will you be my valentine Sneha Kuriakose?
         </p>
         
         <div style={{
@@ -130,9 +164,11 @@ export default function Question() {
           
           <button 
             onClick={handleNoClick}
+            onMouseEnter={handleNoHover}
+            onTouchStart={handleNoHover}
             className="no-button"
             style={{
-              background: '#3e000c',
+              background: isHovering ? '#5a0012' : '#3e000c',
               height: 'clamp(45px, 6vh, 48px)',
               borderRadius: '16px',
               boxShadow: '0px 14.533px 20px 0px rgba(12,0,2,0.2), inset 0px -6.976px 6.976px 0px #35000a, inset 0px 6.976px 6.976px 0px #45000d',
@@ -140,12 +176,13 @@ export default function Question() {
               cursor: 'pointer',
               width: '100%',
               fontFamily: "'Fredoka One', cursive",
-              fontSize: 'clamp(16px, 4vw, 18px)',
+              fontSize: 'clamp(14px, 3.5vw, 16px)',
               color: 'white',
+              position: 'relative',
               ...noButtonStyle
             }}
           >
-            No
+            {noButtonText}
           </button>
         </div>
       </div>
