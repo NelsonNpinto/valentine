@@ -174,8 +174,7 @@ export default function LetterOpen({ resetState }) {
             color: 'black',
             margin: 0
           }}>
-             <br /><br />
-          Happy Valentine's Day, my baby.
+          
           <br /><br />
           I love you so much, more than words can ever explain. I feel incredibly lucky to have you in my life, and I don't take that for granted even for a second. You make my world more meaningful just by being in it.
           <br /><br />

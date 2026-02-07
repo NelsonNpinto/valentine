@@ -25,21 +25,22 @@ export default function Question() {
   };
 
   const handleNoHover = () => {
-    if (noAttempts === 0) {
-      // Keep movement within safe boundaries (max 80px in any direction)
-      const randomX = Math.random() * 160 - 80;
-      const randomY = Math.random() * 100 - 50;
-      const randomRotate = Math.random() * 30 - 15;
-      
-      setNoButtonStyle({
-        transform: `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg) scale(0.9)`,
-        transition: 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
-      });
-      setIsHovering(true);
-    }
+    // Button moves away on hover to make it playful
+    const randomX = Math.random() * 160 - 80;
+    const randomY = Math.random() * 100 - 50;
+    const randomRotate = Math.random() * 20 - 10;
+    
+    setNoButtonStyle({
+      transform: `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg) scale(0.95)`,
+      transition: 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+    });
+    setIsHovering(true);
   };
 
-  const handleNoClick = () => {
+  const handleNoClick = (e) => {
+    // Prevent default to ensure click is registered
+    e.preventDefault();
+    
     const newAttempts = noAttempts + 1;
     setNoAttempts(newAttempts);
 
@@ -48,17 +49,17 @@ export default function Question() {
       return;
     }
 
+    // Button jumps to new position on click
     // Constrain movement to stay within screen boundaries
-    // Reduce range based on attempt number to keep it visible
     const maxMove = Math.max(60, 120 - newAttempts * 15);
     const randomX = Math.random() * (maxMove * 2) - maxMove;
     const randomY = Math.random() * (maxMove * 1.5) - (maxMove * 0.75);
     const randomRotate = Math.random() * 360;
-    const scale = Math.max(0.6, 1 - newAttempts * 0.1);
+    const scale = Math.max(0.65, 1 - newAttempts * 0.08);
     
     setNoButtonStyle({
       transform: `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg) scale(${scale})`,
-      transition: 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+      transition: 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
     });
     
     setNoButtonText(playfulTexts[Math.min(newAttempts, playfulTexts.length - 1)]);
